@@ -3,8 +3,10 @@
 
 import requests
 
-model_inputs = {'prompt': 'Hello I am a [MASK] model.'}
+model_inputs = {'url': 'https://images.pexels.com/photos/207582/pexels-photo-207582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
 
 res = requests.post('http://localhost:8000/', json = model_inputs)
 
-print(res.json())
+# print(res.json())
+# print(res.body)
+print(res)

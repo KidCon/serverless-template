@@ -28,6 +28,7 @@ def healthcheck(request):
 # Inference POST handler at '/' is called for every http call from Banana
 @server.route('/', methods=["POST"]) 
 def inference(request):
+    print("HELLO WORLD INFERENCE")
     try:
         model_inputs = response.json.loads(request.json)
     except:
@@ -35,8 +36,12 @@ def inference(request):
 
     output = user_src.inference(model_inputs)
 
-    return response.json(output)
+    
+    # out_json = {"bytes": output}
 
+    # return response.json(out_json)
+    # return response.file(output)
+    return response.HTTPResponse(body=output, status=200, headers=None, content_type=None)
 
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port="8000", workers=1)
