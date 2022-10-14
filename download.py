@@ -6,6 +6,7 @@
 # from transformers import pipeline
 import gdown
 from pathlib import Path
+from contextlib import redirect_stdout
 
 import sys
 import hashlib
