@@ -36,12 +36,15 @@ def inference(request):
 
     output = user_src.inference(model_inputs)
 
-    
-    # out_json = {"bytes": output}
-
+    print("#########################")
+    print(f'return output of length: {len(output)}')
+    out_json = {"bytes": output}
+    # return response.json(output)
     # return response.json(out_json)
+    return response.raw(output)
     # return response.file(output)
-    return response.HTTPResponse(body=output, status=200, headers=None, content_type=None)
+    # return response.HTTPResponse(body=output, status=200, headers=None, content_type=None)
+    # return response.HTTPResponse(body=out_json, status=200, headers=None, content_type=None)
 
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port="8000", workers=1)

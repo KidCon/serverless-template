@@ -4,6 +4,7 @@ import rembg
 from PIL import Image
 import requests
 from io import BytesIO
+import base64
 
 # Init is ran on server startup
 # Load your model to GPU as a global variable here using the variable name "model"
@@ -35,10 +36,12 @@ def inference(model_inputs:dict) -> dict:
 
     result = rembg.remove(img)
 
-    buf = BytesIO()
-    result.save(buf, format='PNG')
-    byte_im = buf.getvalue()
+    ## Save the new image as a b64 enconded string
+    buffered = BytesIO()
+    result.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue())
+    
     
     # Return the bytes
-    return byte_im
+    return img_str
     # return 'hello'
