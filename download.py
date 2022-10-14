@@ -6,7 +6,6 @@
 # from transformers import pipeline
 import gdown
 
-from .session_simple import SimpleSession
 import sys
 import hashlib
 import os
@@ -21,7 +20,7 @@ def download_model():
 
     md5 = "60024c5c889badc19c04ad937298a77b"
     url = "https://drive.google.com/uc?id=1tCU5MM1LhRgGou5OpmpjBQbSrYIUoYab"
-    session_class = SimpleSession
+
 
     home = os.getenv("U2NET_HOME", os.path.join("~", ".u2net"))
     path = Path(home).expanduser() / f"{model_name}.onnx"
