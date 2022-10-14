@@ -38,10 +38,10 @@ def inference(request):
 
     print("#########################")
     print(f'return output of length: {len(output)}')
-    out_json = {"bytes": output}
+    out_json = {"bytes": str(output)}
     # return response.json(output)
-    # return response.json(out_json)
-    return response.raw(output)
+    return response.json(out_json)
+    # return response.raw(output)
     # return response.file(output)
     # return response.HTTPResponse(body=output, status=200, headers=None, content_type=None)
     # return response.HTTPResponse(body=out_json, status=200, headers=None, content_type=None)
