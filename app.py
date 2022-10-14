@@ -44,5 +44,5 @@ def inference(model_inputs:dict) -> dict:
     
     # Return the bytes
     # return str(img_str)
-    return(img_str)
+    return(str(img_str))
     # return 'hello'
